@@ -2,16 +2,16 @@ const clientModel = require('../models/client');
 
 const addClient = (body) =>{
     const doc = new clientModel(body);
-    const querry = {_id: doc._id};
-    return clientModel.findOneAndUpdate(querry, doc, {
+    const query = {_id: doc._id};
+    return clientModel.findOneAndUpdate(query, doc, {
         upsert: true,
         new: true
     });
 };
 
 const updateClient = (body) =>{
-    const querry = {_id: body._id};
-    return clientModel.findOneAndUpdate(querry, {
+    const query = {_id: body._id};
+    return clientModel.findOneAndUpdate(query, {
         new:true
     });
 };
@@ -24,7 +24,7 @@ const getClient = (filter) => {
     return clientModel.findOne(filter);
 };
 
-const getAllClients = () => {
+const getAllClients = (filter) => {
     return clientModel.find();
 };
 

@@ -17,7 +17,7 @@ const clientSchema = new mongoose.Schema({
         type: Date,
         required:true
     }
-},{colection: 'clients'});
+},{collection: 'clients'});
 
 module.exports = mongoose.model('clients',clientSchema);
 

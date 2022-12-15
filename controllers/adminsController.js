@@ -3,16 +3,16 @@ const { findOneAndDelete, findOne } = require('../models/user');
 
 const addAdmin = (body) => {
     const doc = new adminModel(body);
-    const querry = {_id: doc._id};
-    return adminModel.findOneAndUpdate(querry, doc,{
+    const query = {_id: doc._id};
+    return adminModel.findOneAndUpdate(query, doc,{
         upsert: true,
         new:true
     });
 };
 
 const updateAdmin = (body) =>{
-    const querry = {_id: body._id};
-    return adminModel.findOneAndUpdate(querry, {
+    const query = {_id: body._id};
+    return adminModel.findOneAndUpdate(query, {
         new:true
     });
 };
@@ -25,7 +25,7 @@ const getAdmin = (filter) =>{
     return adminModel.findOne(filter);
 };
 
-const getAllAdmins = () =>{
+const getAllAdmins = (filter) =>{
     return adminModel.find();
 };
 
