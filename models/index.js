@@ -3,5 +3,7 @@ const adminModel = require('./admin');
 const clientModel = require('./client');
 
 module.exports = {
-    userModel
+    userModel,
+    adminModel,
+    clientModel
 }
