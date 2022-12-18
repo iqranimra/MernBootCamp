@@ -4,13 +4,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose');
-
+const authMiddleware = require('./middleware/authMiddleware');
 // var indexRouter = require('./routes/index');
 const {
   userRoutes,
   adminRoutes,
   clientRoutes
 } = require ('./routes');
+
 
 var app = express();
 
@@ -33,6 +34,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//actual routes
+app.post('/signup', authMiddleware.userSignUp);
+
+//test routes
 // app.use('/', indexRouter);
 app.use('/users', userRoutes);
 app.use('/admins', adminRoutes);
