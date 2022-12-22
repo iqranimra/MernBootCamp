@@ -16,7 +16,7 @@ const {
 var app = express();
 
 mongoose
-  .connect('mongodb://localhost:27017/my-db', (err) =>{
+  .connect('mongodb://127.0.0.1:27017/my-db', (err) =>{
   if (err) {
     return console.log('Error connecting with DB', err);
   }
